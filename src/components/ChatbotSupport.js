@@ -41,7 +41,7 @@ const APPOINTMENT_QUESTIONS = [
   },
 ];
 
-const BOT_AVATAR = "/logo.png";
+const BOT_AVATAR = process.env.PUBLIC_URL + "/logo.png";
 
 const DOCTORS_LIST = [
   { name: "Dr. Priya Sharma", spec: "Cardiologist", time: "Mon-Fri 10am-2pm" },

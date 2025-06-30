@@ -54,15 +54,7 @@ function App() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#181f2a",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className="app-container">
       {!feature && (
         <LandingPage
           onFeatureNav={handleFeatureNav}
@@ -83,27 +75,8 @@ function App() {
         />
       )}
       {feature === "chatbot" && (
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <button
-            onClick={handleBack}
-            style={{
-              margin: 16,
-              background: "#4fd1c5",
-              color: "#181f2a",
-              border: "none",
-              borderRadius: 8,
-              padding: "8px 18px",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
+        <div className="chatbot-wrapper">
+          <button className="back-btn" onClick={handleBack}>
             ← Back
           </button>
           <ChatbotSupport onBookAppointment={() => setFeature("appointment")} />

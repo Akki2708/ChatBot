@@ -2,29 +2,44 @@ import React, { useState } from "react";
 
 const faqs = [
   {
-    question: "What is a healthy diet?",
+    question: "What are the hospital's operating hours?",
     answer:
-      "A healthy diet includes a variety of fruits, vegetables, lean proteins, whole grains, and limited processed foods and sugars.",
+      "Our hospital operates 24/7 for emergency services. Regular outpatient services are available Monday to Friday from 8:00 AM to 6:00 PM, and Saturday from 9:00 AM to 2:00 PM.",
   },
   {
-    question: "How much water should I drink daily?",
+    question: "How do I book an appointment?",
     answer:
-      "It is recommended to drink at least 8 glasses (64 ounces) of water daily, but this can vary based on activity level and climate.",
+      "You can book an appointment through our online booking system, by calling our reception at +1 (555) 123-4567, or by visiting our hospital in person.",
   },
   {
-    question: "What are the benefits of regular exercise?",
+    question: "What insurance plans do you accept?",
     answer:
-      "Regular exercise helps maintain a healthy weight, improves cardiovascular health, boosts mood, and reduces the risk of chronic diseases.",
+      "We accept most major insurance plans including Blue Cross Blue Shield, Aetna, Cigna, UnitedHealth, and Medicare/Medicaid. Please contact our billing department for specific coverage details.",
   },
   {
-    question: "How can I improve my sleep quality?",
+    question: "Is parking available at the hospital?",
     answer:
-      "To improve sleep quality, maintain a regular sleep schedule, create a relaxing bedtime routine, and avoid caffeine and screens before bed.",
+      "Yes, we provide free parking for all patients and visitors. Our parking lot is located adjacent to the main building with designated spaces for disabled visitors.",
   },
   {
-    question: "What are common symptoms of stress?",
+    question: "What should I bring for my appointment?",
     answer:
-      "Common symptoms of stress include headaches, muscle tension, fatigue, irritability, and difficulty concentrating.",
+      "Please bring your ID, insurance card, list of current medications, medical history, and any relevant test results or medical records.",
+  },
+  {
+    question: "Do you offer telemedicine services?",
+    answer:
+      "Yes, we offer telemedicine consultations for certain types of appointments. You can schedule a virtual visit through our patient portal or by calling our office.",
+  },
+  {
+    question: "What emergency services do you provide?",
+    answer:
+      "Our emergency department provides 24/7 care for all types of medical emergencies including trauma, cardiac care, stroke treatment, and pediatric emergencies.",
+  },
+  {
+    question: "How can I access my medical records?",
+    answer:
+      "You can access your medical records through our secure patient portal, or request copies by contacting our medical records department with proper identification.",
   },
 ];
 
@@ -37,64 +52,23 @@ function HealthFAQs({ onBack }) {
   );
 
   return (
-    <div
-      style={{
-        maxWidth: 800,
-        margin: "auto",
-        padding: 20,
-        background: "#232b3a",
-        borderRadius: 16,
-        boxShadow: "0 4px 32px rgba(0,0,0,0.4)",
-      }}
-    >
-      <button
-        onClick={onBack}
-        style={{
-          marginBottom: 16,
-          background: "#4fd1c5",
-          color: "#181f2a",
-          border: "none",
-          borderRadius: 8,
-          padding: "8px 18px",
-          fontWeight: 600,
-          cursor: "pointer",
-        }}
-      >
+    <div className="faqs-container">
+      <button className="back-btn" onClick={onBack}>
         ← Back
       </button>
-      <h2 style={{ color: "#e0e6ed", textAlign: "center", marginBottom: 20 }}>
-        Health FAQs
-      </h2>
+      <h2 className="faqs-title">Health FAQs</h2>
       <input
         type="text"
         placeholder="Search FAQs..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        style={{
-          width: "100%",
-          padding: 10,
-          marginBottom: 20,
-          borderRadius: 8,
-          border: "none",
-          background: "#202736",
-          color: "#e0e6ed",
-        }}
+        className="faqs-search-input"
       />
-      <div>
+      <div className="faqs-list">
         {filteredFaqs.map((faq, index) => (
-          <div
-            key={index}
-            style={{
-              marginBottom: 20,
-              padding: 15,
-              background: "#2d3748",
-              borderRadius: 8,
-            }}
-          >
-            <h3 style={{ color: "#4fd1c5", marginBottom: 10 }}>
-              {faq.question}
-            </h3>
-            <p style={{ color: "#e0e6ed" }}>{faq.answer}</p>
+          <div key={index} className="faq-item">
+            <h3 className="faq-question">{faq.question}</h3>
+            <p className="faq-answer">{faq.answer}</p>
           </div>
         ))}
       </div>

@@ -49,83 +49,17 @@ function BookAppointment({ onBack, selectedDoctor }) {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #f7fafd 0%, #e0e6ed 100%)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "2rem 1rem",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: 420,
-          background: "#fff",
-          borderRadius: 18,
-          boxShadow: "0 4px 32px rgba(102,126,234,0.10)",
-          padding: "2.2rem 2rem 2rem 2rem",
-          margin: "auto",
-          position: "relative",
-        }}
-      >
-        <button
-          className="btn btn-secondary"
-          onClick={onBack}
-          style={{
-            marginBottom: "1rem",
-            background: "#dc3545",
-            color: "white",
-            border: "none",
-            padding: "12px 20px",
-            borderRadius: "25px",
-            cursor: "pointer",
-            transition: "all 0.3s ease",
-            fontSize: "1rem",
-            position: "absolute",
-            left: 24,
-            top: 24,
-            zIndex: 2,
-          }}
-        >
-          ← Back
-        </button>
-        <h2
-          style={{
-            textAlign: "center",
-            margin: "0 0 1.5rem 0",
-            fontWeight: 700,
-            color: "#4f8cff",
-          }}
-        >
-          Book an Appointment
-        </h2>
+    <div className="appointment-container">
+      <div className="appointment-form-card">
+        <h2 className="appointment-title">Book an Appointment</h2>
         {selectedDoctor && (
-          <div
-            style={{
-              background: "linear-gradient(135deg, #667eea, #764ba2)",
-              color: "white",
-              padding: "1rem",
-              borderRadius: "10px",
-              marginBottom: "1.5rem",
-              textAlign: "center",
-            }}
-          >
-            <h3 style={{ margin: "0 0 0.5rem 0" }}>Selected Doctor</h3>
-            <p style={{ margin: "0", fontSize: "1.1rem" }}>
-              {selectedDoctor.name}
-            </p>
-            <p style={{ margin: "0.5rem 0 0 0", opacity: "0.9" }}>
-              {selectedDoctor.specialty}
-            </p>
+          <div className="selected-doctor-card">
+            <h3>Selected Doctor</h3>
+            <p className="doctor-name">{selectedDoctor.name}</p>
+            <p className="doctor-specialty">{selectedDoctor.specialty}</p>
           </div>
         )}
-        <form
-          onSubmit={handleSubmit}
-          style={{ marginTop: selectedDoctor ? 0 : 32 }}
-        >
+        <form onSubmit={handleSubmit} className="appointment-form">
           <div className="form-group">
             <label>Patient Name</label>
             <input
@@ -133,13 +67,7 @@ function BookAppointment({ onBack, selectedDoctor }) {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: 8,
-                border: "1px solid #e0e6ed",
-                marginBottom: 16,
-              }}
+              className="form-input"
             />
           </div>
           <div className="form-group">
@@ -151,13 +79,7 @@ function BookAppointment({ onBack, selectedDoctor }) {
               required
               maxLength={10}
               pattern="\d{10}"
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: 8,
-                border: "1px solid #e0e6ed",
-                marginBottom: 16,
-              }}
+              className="form-input"
             />
           </div>
           <div className="form-group">
@@ -167,13 +89,7 @@ function BookAppointment({ onBack, selectedDoctor }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: 8,
-                border: "1px solid #e0e6ed",
-                marginBottom: 16,
-              }}
+              className="form-input"
             />
           </div>
           <div className="form-group">
@@ -183,13 +99,7 @@ function BookAppointment({ onBack, selectedDoctor }) {
               value={date}
               onChange={(e) => setDate(e.target.value)}
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: 8,
-                border: "1px solid #e0e6ed",
-                marginBottom: 16,
-              }}
+              className="form-input"
             />
           </div>
           <div className="form-group">
@@ -199,13 +109,7 @@ function BookAppointment({ onBack, selectedDoctor }) {
               value={time}
               onChange={(e) => setTime(e.target.value)}
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: 8,
-                border: "1px solid #e0e6ed",
-                marginBottom: 16,
-              }}
+              className="form-input"
             />
           </div>
           <div className="form-group">
@@ -214,13 +118,7 @@ function BookAppointment({ onBack, selectedDoctor }) {
               value={doctor}
               onChange={(e) => setDoctor(e.target.value)}
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: 8,
-                border: "1px solid #e0e6ed",
-                marginBottom: 24,
-              }}
+              className="form-input"
             >
               <option value="">Select a doctor</option>
               <option value="Dr. Priya Sharma">
@@ -237,21 +135,10 @@ function BookAppointment({ onBack, selectedDoctor }) {
               </option>
             </select>
           </div>
-          {error && (
-            <div style={{ color: "#dc3545", marginBottom: "1rem" }}>
-              {error}
-            </div>
-          )}
+          {error && <div className="error-message">{error}</div>}
           <button
             type="submit"
-            className="btn btn-primary"
-            style={{
-              width: "100%",
-              padding: "12px",
-              fontWeight: 600,
-              fontSize: "1.1rem",
-              borderRadius: 8,
-            }}
+            className="btn btn-primary appointment-submit-btn"
           >
             Book Appointment
           </button>

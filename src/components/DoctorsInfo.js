@@ -4,7 +4,7 @@ const doctors = [
   {
     name: "Dr. Priya Sharma",
     specialty: "Cardiologist",
-    photo: "/doctor2.png",
+    photo: process.env.PUBLIC_URL + "/doctor2.png",
     desc: "Expert in heart health, preventive cardiology, and patient care with 15+ years of experience.",
     phone: "+1 (555) 123-4567",
     email: "dr.sharma@crystalcare.com",
@@ -12,7 +12,7 @@ const doctors = [
   {
     name: "Dr. Rahul Mehta",
     specialty: "Orthopedic Surgeon",
-    photo: "/doctor1.png",
+    photo: process.env.PUBLIC_URL + "/doctor1.png",
     desc: "Specialist in bone and joint care, minimally invasive surgery, and sports injuries.",
     phone: "+1 (555) 123-4568",
     email: "dr.mehta@crystalcare.com",
@@ -20,7 +20,7 @@ const doctors = [
   {
     name: "Dr. Anjali Desai",
     specialty: "Pediatrician",
-    photo: "/doctor3.png",
+    photo: process.env.PUBLIC_URL + "/doctor3.png",
     desc: "Caring for children's health, growth, and development from newborns to teens.",
     phone: "+1 (555) 123-4569",
     email: "dr.desai@crystalcare.com",
@@ -28,7 +28,7 @@ const doctors = [
   {
     name: "Dr. Sameer Kulkarni",
     specialty: "Dermatologist",
-    photo: "/doctor4.png",
+    photo: process.env.PUBLIC_URL + "/doctor4.png",
     desc: "Skin, hair, and nail specialist with a focus on modern, evidence-based treatments.",
     phone: "+1 (555) 123-4570",
     email: "dr.kulkarni@crystalcare.com",
